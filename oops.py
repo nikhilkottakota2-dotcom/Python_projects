@@ -73,7 +73,6 @@
 # my_screen.exitonclick()
 
 from turtle import Turtle,Screen
-
 my_turtle = Turtle()
 print(my_turtle)
 my_turtle.shape("turtle")
@@ -86,4 +85,3 @@ my_turtle.left(90)
 my_turtle.forward(100)
 screen = Screen()
 print(screen.canvheight)
-screen.exitonclick()
