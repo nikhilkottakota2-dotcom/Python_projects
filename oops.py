@@ -72,16 +72,36 @@
 # print(my_screen.canvheight)
 # my_screen.exitonclick()
 
-from turtle import Turtle,Screen
+# from turtle import Turtle,Screen
+# my_turtle = Turtle()
+# print(my_turtle)
+# my_turtle.shape("turtle")
+# my_turtle.forward(100)
+# my_turtle.left(90)
+# my_turtle.forward(100)
+# my_turtle.left(90)
+# my_turtle.forward(100)
+# my_turtle.left(90)
+# my_turtle.forward(100)
+# screen = Screen()
+# print(screen.canvheight)
+from turtle import Turtle, Screen
+
 my_turtle = Turtle()
-print(my_turtle)
-my_turtle.shape("turtle")
-my_turtle.forward(100)
-my_turtle.left(90)
-my_turtle.forward(100)
-my_turtle.left(90)
-my_turtle.forward(100)
-my_turtle.left(90)
-my_turtle.forward(100)
+
+class MoveForward:
+    def forward_m(self):
+        my_turtle.forward(100)
+
+class Square:
+    def clockwise(self):
+        for _ in range(4):
+            my_turtle.forward(100)
+            my_turtle.left(90)
+
+f = MoveForward()
+s = Square()
+
 screen = Screen()
-print(screen.canvheight)
+s.clockwise()   # Call the method to draw the square
+screen.exitonclick()
