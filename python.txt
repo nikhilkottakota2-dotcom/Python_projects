@@ -1,0 +1,16 @@
+python
+
+
+class student:
+    def greet(self):
+        print(self)
+s1 = student()
+print(s1)
+s1.greet()
+
+this code prints the address of the object
+output:-
+<__main__.student object at 0x000001B32DA78C20>
+<__main__.student object at 0x000001B32DA78C20>
+
+there should be anything in the place of the self
