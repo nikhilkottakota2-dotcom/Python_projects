@@ -30,7 +30,12 @@ while game_on:
     elif ball_obj.ycor() <= -280:
         ball_obj.sety(-280)
         ball_obj.bounce_y()
+    
+    if (ball_obj.distance(r_paddle) < 50 and ball_obj.xcor() > 340) or (ball_obj.distance(l_paddle) < 50 and ball_obj.xcor() < -340):
+        ball_obj.bounce_x()
 
+    if ball_obj.xcor() > 380 or ball_obj.xcor() < -380:
+        break
     screen.update()
 
 screen.exitonclick()
