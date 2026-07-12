@@ -10,3 +10,5 @@ class board(Turtle):
         self.r_score = 0
         self.goto(-100,200)
         self.write(self.l_score, align="center", font=("courier", 80, "normal"))
+        self.goto(100,200)
+        self.write(self.l_score, align="center", font=("courier", 80, "normal"))
