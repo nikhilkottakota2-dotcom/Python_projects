@@ -2,7 +2,7 @@ from turtle import Screen
 from paddle import Paddle
 from Ball import ball
 import time
-
+from scoreboard import board
 screen = Screen()
 screen.bgcolor("black")
 screen.setup(width=800, height=600)
@@ -12,6 +12,8 @@ screen.tracer(0)
 r_paddle = Paddle((350, 0))
 l_paddle = Paddle((-350, 0))
 ball_obj = ball()
+
+scoreboard = board()
 
 screen.listen()
 screen.onkey(r_paddle.go_up, "Up")
