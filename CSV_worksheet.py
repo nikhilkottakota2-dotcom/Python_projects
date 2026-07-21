@@ -7,7 +7,7 @@
     # Ln peta ,Sunny,41
     # Hiramandalam ,Sunny,38
 
-import csv
+# import csv
 
 
 # with open("Book2.csv") as book:
@@ -23,9 +23,9 @@ import csv
 #         if row[2]!="Temprature":
 #             temprature.append(row[2])
 #     print(temprature)           # output:-['29', '41', '38']
-import pandas
+# import pandas
 
-data = pandas.read_csv("Book2.csv")
+# data = pandas.read_csv("Book2.csv")
 # print(data[Temprature])
 
 # data_dict = data.to_dict()
@@ -53,4 +53,26 @@ data = pandas.read_csv("Book2.csv")
 # 1       Ln peta   Sunny          41
 # 2  Hiramandalam   Sunny          38
 
-print(data[data["Temprature"]==data["Temprature"].max()])
+# print(data[data["Temprature"]==data["Temprature"].max()])
+#output for the above line
+#        Area Wether  Temprature
+# 1  Ln peta   Sunny          41
+
+import pandas
+data = pandas.read_csv("2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv")
+grey_squirrel = len(data[data["Primary Fur Color"]=="Gray"])
+Cinnamon_squirrel = len(data[data["Primary Fur Color"]=="Cinnamon"])
+Black_squirrel = len(data[data["Primary Fur Color"]=="Black"])
+print(grey_squirrel)
+print(Cinnamon_squirrel)
+print(Black_squirrel)
+
+data_dict = {
+    "Fur Color" : ["Gray","Cinnamon","Black"],
+    "Count" : [grey_squirrel,Cinnamon_squirrel,Black_squirrel]
+}
+
+print(data_dict)
+
+pb = pandas.DataFrame(data_dict)
+pb.to_csv("Squirrel_count.csv")
