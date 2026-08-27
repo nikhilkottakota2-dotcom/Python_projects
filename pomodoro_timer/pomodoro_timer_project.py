@@ -1,0 +1,55 @@
+from tkinter import *
+import math
+# ---------------- CONSTANTS ------------------------
+PINK = "#e2979c"
+RED = "#e7305b"
+GREEN = "#9bdeac"
+YELLOW = "#f7f5dd"
+FONT_NAME = "Courier"
+WORK_MIN = 25
+SHORT_BREAK_MIN = 5
+LONG_BREAK_MIN = 20
+#------------------TIMER RESET------------------------
+
+def timer_reset():
+    canvas.itemconfig(timer_text,text="00:00")
+
+
+#------------------TIMER MECHANISM--------------------
+def start_timer():
+    count_down(5*60)
+#------------------COUNTDOWN MECHANISM----------------
+def count_down(count):
+
+    count_min = math.floor(count/60)
+    count_sec = count % 60
+
+    canvas.itemconfig(timer_text,text=f"{count_min}:{count_sec}")
+    if count>0:
+        window.after(1000,count_down,count-1)
+#------------------UI SETUP---------------------------
+
+window = Tk()
+window.title("pomodoro")
+window.minsize(width=500,height=400)
+canvas = Canvas(width=350,height=400,highlightthickness=0)
+
+photo = PhotoImage(file=r"C:\python\100_days_bootcamp\pomodoro_timer\pomodoro_png.PNG")
+
+canvas.create_image(175,200,image=photo)
+timer_text=canvas.create_text(175,200,text="00:00",font=(FONT_NAME,45,"bold"))
+canvas.grid(row=1,column=0,columnspan=3)
+
+timer_label = Label(text="Timer",padx=60,pady=20,font=(FONT_NAME,42,"bold"))
+timer_label.grid(row=0,column=1)
+
+start_button = Button(text="Start",command=start_timer)
+start_button.grid(row=2,column=0)
+
+reset_button = Button(text="Reset",command=timer_reset)
+reset_button.grid(row=2,column=2)
+
+check_marks = Label(text="✅",fg= "GREEN")
+check_marks.grid(row=3,column=1)
+
+window.mainloop()
