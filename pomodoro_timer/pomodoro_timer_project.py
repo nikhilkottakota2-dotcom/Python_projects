@@ -14,15 +14,17 @@ LONG_BREAK_MIN = 20
 def timer_reset():
     canvas.itemconfig(timer_text,text="00:00")
 
-
 #------------------TIMER MECHANISM--------------------
 def start_timer():
-    count_down(5*60)
+    minutes = int(user_ent.get())
+    count_down(minutes * 60)
 #------------------COUNTDOWN MECHANISM----------------
 def count_down(count):
 
     count_min = math.floor(count/60)
     count_sec = count % 60
+    if count_sec<10:
+        count_sec = f"0{count_sec}"
 
     canvas.itemconfig(timer_text,text=f"{count_min}:{count_sec}")
     if count>0:
@@ -50,6 +52,10 @@ reset_button = Button(text="Reset",command=timer_reset)
 reset_button.grid(row=2,column=2)
 
 check_marks = Label(text="✅",fg= "GREEN")
-check_marks.grid(row=3,column=1)
+check_marks.grid(row=4,column=1)
+#-------user input entry 
+
+user_ent = Entry()
+user_ent.grid(row=3,column=1)
 
 window.mainloop()
