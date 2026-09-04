@@ -1,9 +1,6 @@
 from tkinter import *
 import random
-<<<<<<< HEAD
-=======
 from pathlib import Path
->>>>>>> main
 
 def generate_pass():
     words = [
@@ -30,8 +27,6 @@ def generate_pass():
     pass_entry.insert(0,g_password)
 
 
-<<<<<<< HEAD
-=======
 
 DATA_FILE = Path(__file__).with_name("data.txt")
 
@@ -44,7 +39,6 @@ def signup():
 
     
 
->>>>>>> main
 windows = Tk()
 windows.title("Password")
 windows.minsize(width=600,height=600)
@@ -75,14 +69,10 @@ pass_entry = Entry(font=("Arial",18))
 pass_entry.grid(row=5,column=1)
 
 pass_generate = Button(text="Generate Password",font=("Arial",18),command=generate_pass)
-<<<<<<< HEAD
-pass_generate.grid(row=4,column=2)
-=======
 pass_generate.grid(row=5,column=2)
 
 add_button = Button(text="ADD",font=("Arial",18),command=signup)
 add_button.grid(row=6,column=1)
->>>>>>> main
 
 
 
