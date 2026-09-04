@@ -2,8 +2,6 @@ from tkinter import *
 import random
 from pathlib import Path
 
-DATA_FILE = Path(__file__).with_name("data.txt")
-
 def generate_pass():
     words = [
         'a','b','c','d','e','f','g','h','i','j','k','l','m',
@@ -27,6 +25,10 @@ def generate_pass():
         g_password = "".join(password_shuffle)
     # print(g_password)
     pass_entry.insert(0,g_password)
+
+
+
+DATA_FILE = Path(__file__).with_name("data.txt")
 
 def signup():
     username = user_entry.get()
@@ -69,8 +71,8 @@ pass_entry.grid(row=5,column=1)
 pass_generate = Button(text="Generate Password",font=("Arial",18),command=generate_pass)
 pass_generate.grid(row=5,column=2)
 
-add_button = Button(text="ADD", font=("Arial", 18), command=signup)
-add_button.grid(row=6, column=1)
+add_button = Button(text="ADD",font=("Arial",18),command=signup)
+add_button.grid(row=6,column=1)
 
 
 
