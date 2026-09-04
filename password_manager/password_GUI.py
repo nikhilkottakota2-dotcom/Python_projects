@@ -1,4 +1,31 @@
 from tkinter import *
+import random
+
+def generate_pass():
+    words = [
+        'a','b','c','d','e','f','g','h','i','j','k','l','m',
+        'n','o','p','q','r','s','t','u','v','w','x','y','z',
+        'A','B','C','D','E','F','G','H','I','J','K','L','M',
+        'N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
+    ]
+
+    numbers = ['1','2','3','4','5','6','7','8','9']
+
+    symbols = ['@','#','%','$','₹']
+    g_password=""
+    for w in range(1,6):
+        g_password += random.choice(words)
+    for n in range(1,4):
+        g_password+=random.choice(numbers)
+    for s in range(1,3):
+        g_password += random.choice(symbols)
+        password_shuffle = list(g_password)
+        random.shuffle(password_shuffle)
+        g_password = "".join(password_shuffle)
+    # print(g_password)
+    pass_entry.insert(0,g_password)
+
+
 windows = Tk()
 windows.title("Password")
 windows.minsize(width=600,height=600)
@@ -22,7 +49,7 @@ user_entry.grid(row=3,column=1)
 pass_entry = Entry(font=("Arial",18))
 pass_entry.grid(row=4,column=1)
 
-pass_generate = Button(text="Generate Password",font=("Arial",18))
+pass_generate = Button(text="Generate Password",font=("Arial",18),command=generate_pass)
 pass_generate.grid(row=4,column=2)
 
 login_button = Button(text="Login",font=("Arial",18))
