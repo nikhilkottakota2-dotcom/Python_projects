@@ -1,6 +1,7 @@
 from tkinter import *
 import random
 from pathlib import Path
+from tkinter import messagebox
 
 def generate_pass():
     words = [
@@ -34,8 +35,12 @@ def signup():
     username = user_entry.get()
     password = pass_entry.get()
     website = website_entry.get()
-    with DATA_FILE.open("a", encoding="utf-8") as data_file:
-        data_file.write(f"{website} | {username} | {password}\n")
+    if len(username) and len(password) and len(website) > 0:
+
+        with DATA_FILE.open("a", encoding="utf-8") as data_file:
+            data_file.write(f"{website} | {username} | {password}\n")
+    else:
+        messagebox.showerror(title=Warning,message="Enter all the Details")
 
     
 
