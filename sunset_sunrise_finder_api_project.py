@@ -1,6 +1,6 @@
 import requests
-MY_LAT = 18.617958
-MY_LONG = 18.617958
+MY_LAT = 18.565531
+MY_LONG = 84.196769
 parameters = {
     "lat":MY_LAT,
     "lng":MY_LONG
