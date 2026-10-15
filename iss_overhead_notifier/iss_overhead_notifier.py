@@ -2,9 +2,10 @@ import requests
 from datetime import datetime
 import smtplib
 import time
+import os
 
-MY_EMAIL = "kottakotanikhil75@gmail.com"
-MY_PASSWORD = "gcvc kize yqqi rkar"
+MY_EMAIL = "yourgmail@gmail.com"
+MY_PASSWORD = os.environ.get("MAIL_PASS")
 MY_LAT = 18.565531
 MY_LONG = 84.196769
 
@@ -48,7 +49,7 @@ while True:
         connection.login(MY_EMAIL, MY_PASSWORD)
         connection.sendmail(
             from_addr=MY_EMAIL,
-            to_addrs="nikhilkottakota2@gmail.com",
+            to_addrs="receivergmail@email",
             msg="Subject:Look Up\n\nThe ISS is above you in the sky."
         )
 
